@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/lib/utils";
 import Logo from "./logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -29,7 +30,12 @@ export default function AppHeader() {
             <li key={e.path}>
               <Link
                 href={e.path}
-                className="text-white/70 active:bg-black/10 rounded-sm px-2 py-1 hover:text-white transition"
+                className={cn(
+                  "text-white/70  rounded-sm px-2 py-1 hover:text-white transition",
+                  {
+                    "bg-black/10": e.path === activePathname,
+                  }
+                )}
               >
                 {e.label}
               </Link>

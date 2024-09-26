@@ -3,7 +3,7 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-                hostname: 'bytegrad.com',
+                hostname: '**',
                 protocol: 'https',
 
             }

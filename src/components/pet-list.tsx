@@ -21,11 +21,11 @@ export default function PetList() {
             onClick={() => handleChangeSelectedPetId(pet.id)}
             className={cn(
               "flex items-center text-base h-[70px] w-full cursor-pointer px-5 gap-3 hover:bg-[#EFF1F2] focus:bg-[#EFF1F2] transition",
-              { "bg-[#16531e]": selectedPetId === pet.id }
+              { "bg-[#d6d6d6]": selectedPetId === pet.id }
             )}
           >
             <Image
-              src={pet.imageUrl}
+              src={pet!.imageUrl}
               alt={`Image of ${pet.name}`} // Meaningful alt text
               height={45}
               width={45}

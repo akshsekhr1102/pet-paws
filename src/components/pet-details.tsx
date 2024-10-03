@@ -1,9 +1,10 @@
 "use client";
 
 import { usePetContext } from "@/lib/hooks";
-import { Pet } from "@/lib/types";
+
 import Image from "next/image";
 import PetButton from "./pet-button";
+import { Pet } from "@prisma/client";
 
 export default function PetDetails() {
   const { selectedPet } = usePetContext();
@@ -35,12 +36,12 @@ function EmptyView() {
 }
 
 function TopBar({ pet }: Props) {
-  const { handleCheckOutPet } = usePetContext();
+  const { handleCheckoutPet } = usePetContext();
 
   return (
     <div className="flex items-center py-2 border-b border-light  bg-white px-8">
       <Image
-        src={pet?.imageUrl}
+        src={pet!.imageUrl}
         alt={`Image of ${pet.name}`} // Meaningful alt text
         height={75}
         width={75}
@@ -51,7 +52,7 @@ function TopBar({ pet }: Props) {
         <PetButton actionType={"edit"} />
         <PetButton
           actionType={"checkout"}
-          onClick={() => handleCheckOutPet(pet.id)}
+          onClick={async () => await handleCheckoutPet(pet?.id)}
         />
       </div>
     </div>

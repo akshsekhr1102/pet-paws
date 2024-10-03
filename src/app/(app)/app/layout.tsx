@@ -2,12 +2,11 @@ import AppFooter from "@/components/app-footer";
 import AppHeader from "@/components/app-header";
 import BgPattern from "@/components/bg-pattern";
 import PetContextProvider from "@/contexts/pet-context-provider";
-import SearchContextProvider, {
-  SearchContext,
-} from "@/contexts/search-context-provider";
-import { Pet } from "@/lib/types";
+import SearchContextProvider from "@/contexts/search-context-provider";
+
 import { ReactNode } from "react";
 import prisma from "@/lib/db";
+import { Toaster } from "@/components/ui/sonner";
 
 export default async function layout({ children }: { children: ReactNode }) {
   const pets = await prisma.pet.findMany({});
@@ -21,6 +20,7 @@ export default async function layout({ children }: { children: ReactNode }) {
         </SearchContextProvider>
         <AppFooter />
       </div>
+      <Toaster position="top-right" />
     </>
   );
 }

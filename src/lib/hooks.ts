@@ -1,6 +1,5 @@
 import { PetContext } from "@/contexts/pet-context-provider";
 import { SearchContext } from "@/contexts/search-context-provider";
-import { UserSearch } from "lucide-react";
 import { useContext } from "react";
 
 export function usePetContext() {
